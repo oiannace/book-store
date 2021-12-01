@@ -10,16 +10,20 @@ import java.util.ArrayList;
 @RestController
 @RequestMapping(path = "api/v1/Book")
 public class BookController {
-    private Inventory inv = Inventory.getInstance();
+    private final BookService bookService;
+
+    @Autowired
+    public BookController(BookService bookService){
+        this.bookService = bookService;
+    }
 
 
     public void add_book(){
-        inv.addBook("The Hobbit", 9.99);
-        inv.addBook("Eragon", 11.99);
+
 
     }
     @GetMapping
-    public ArrayList<Book> getBooks() {
-        return inv.getBooks();
+    public void getBooks() {
+
     }
 }
