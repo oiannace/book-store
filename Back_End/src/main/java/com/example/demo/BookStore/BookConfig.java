@@ -11,7 +11,7 @@ public class BookConfig {
     @Bean
     CommandLineRunner commandLineRunner(BookRepository repo){
         return args->{
-            Book Book1 = new Book (1,"The Hobbit", 9.99);
+            Book Book1 = new Book (1,"The Hobit", 19.99);
             Book Book2 = new Book (2,"Harry Potter and the Philosophers Stone", 12.99);
             ArrayList<Book> Books = new ArrayList<Book>();
             Books.add(Book1);

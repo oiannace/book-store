@@ -38,4 +38,5 @@ public class Book
     {
         return Price;
     }
+    public int getId() {return id;}
 }
