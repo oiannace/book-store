@@ -16,27 +16,27 @@ public class Book
             strategy = GenerationType.SEQUENCE,
             generator = "book_sequence"
     )
-    private int id;
-    private String Name;
-    private double Price;
+    private int num;
+    private String bname;
+    private double price;
 
     /**
      * Constructor for objects of class Book
      */
     public Book(){}
-    public Book(int id, String Name, double Price)
+    public Book(int num, String bname, double price)
     {
-        this.id = id;
-        this.Name = Name;
-        this.Price = Price;
+        this.num = num;
+        this.bname = bname;
+        this.price = price;
     }
     public String getName()
     {
-        return Name;
+        return bname;
     }
     public double getPrice()
     {
-        return Price;
+        return price;
     }
-    public int getId() {return id;}
+    public int getNum() {return num;}
 }

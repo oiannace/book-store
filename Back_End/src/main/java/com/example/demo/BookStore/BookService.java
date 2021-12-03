@@ -1,6 +1,7 @@
 package com.example.demo.BookStore;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class BookService
     }
 
     public void addBook(Book book){
-        Optional<Book> bookOptional = bookRepository.findBookById(book.getId());
+        Optional<Book> bookOptional = bookRepository.findBookByName(book.getName());
         if(bookOptional.isPresent()){
             throw new IllegalStateException("Name already exists.");
         }

@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
-
+//@CrossOrigin("*")
 @RestController
-@RequestMapping(path = "api/v1/Book")
 public class BookController {
     private final BookService bookService;
 
@@ -17,20 +17,18 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping
+    @RequestMapping(value = "/api/v1/Book", method = RequestMethod.GET)
     public List<Book> getBooks() {
+
         return bookService.getBooks();
     }
 
-    //@PostMapping(
-    //        consumes = MediaType.APPLICATION_JSON_VALUE,
-    //        produces = MediaType.APPLICATION_JSON_VALUE)
-    //public void addBook(@RequestBody Book book){
-    //    System.out.println( book.getName());
-    //    bookService.addBook(book);
-    //}
-    @PostMapping
-    public void addBook(){
-        System.out.println("here");
+
+    @RequestMapping(value = "/api/v1/Book", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+
+    public void addBook(@RequestBody Book book) {
+        System.out.println(book.getName());
+        bookService.addBook(book);
     }
+
 }
