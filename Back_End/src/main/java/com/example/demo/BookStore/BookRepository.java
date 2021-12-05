@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book,String> {
+public interface BookRepository extends JpaRepository<Book,Integer> {
 
     @Query("SELECT b FROM Book b WHERE b.bname = ?1")
     Optional<Book> findBookByName(String bname);

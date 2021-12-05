@@ -22,6 +22,14 @@ public class BookService
         return bookRepository.findAll();
     }
 
+    public void removeBook(int num){
+        boolean bnum = bookRepository.existsById(num);
+        if(!bnum){
+            throw new IllegalStateException("Book with id "+ num + " does not exist");
+        }
+        bookRepository.deleteById(num);
+    }
+
     public void addBook(Book book){
         Optional<Book> bookOptional = bookRepository.findBookByName(book.getName());
         if(bookOptional.isPresent()){

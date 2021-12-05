@@ -23,9 +23,12 @@ public class BookController {
         return bookService.getBooks();
     }
 
-
-    @RequestMapping(value = "/api/v1/Book", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-
+    @RequestMapping(value = "/api/v1/Book/{bnum}", method = RequestMethod.DELETE)
+    public void removeBook(@PathVariable("bnum") int bnum){
+        System.out.println(bnum);
+        bookService.removeBook(bnum);
+    }
+    @RequestMapping(value = "/api/v1/Book", method = RequestMethod.POST, consumes = "application/json")
     public void addBook(@RequestBody Book book) {
         System.out.println(book.getName());
         bookService.addBook(book);
