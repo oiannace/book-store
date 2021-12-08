@@ -37,4 +37,13 @@ public class BookService
         }
         bookRepository.save(book);
     }
+
+    public Book searchBook(String bname) {
+        Optional<Book> bookOptional = bookRepository.findBookByName(bname);
+        if(!bookOptional.isPresent()){
+            throw new IllegalStateException("Book does not exist.");
+        }
+        Book book = bookOptional.get();
+        return book;
+    }
 }
