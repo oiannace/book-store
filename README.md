@@ -3,7 +3,7 @@ REST api for an inventory management system using Java, Spring Boot and MySQL
 
 This api completes GET, POST, and DELETE requests which manage the inventory of an online store in a MySQL database. 
 
-**NOTE: In order to connect to the database you need a MySQL account, and in the file application.properties changes need to be made to the following properties to represent your username and password.
+**NOTE**: In order to connect to the database you need a MySQL account, and in the file application.properties changes need to be made to the following properties to represent your username and password.
 
 spring.datasource.username=root  
 spring.datasource.password=pass
