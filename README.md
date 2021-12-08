@@ -5,7 +5,7 @@ This api completes GET, POST, and DELETE requests which manage the inventory of 
 
 **NOTE: In order to connect to the database you need a MySQL account, and in the file application.properties changes need to be made to the following properties to represent your username and password.
 
-spring.datasource.username=root\n
+spring.datasource.username=root  
 spring.datasource.password=pass
 
 **GET Request**
