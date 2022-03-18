@@ -31,9 +31,6 @@ public class ThreadService
 
     public void addThread(ForumThread thread){
         Optional<ForumThread> threadOptional = threadRepository.findThreadbyid(thread.getid());
-        //if(threadOptional.isPresent()){
-        //    throw new IllegalStateException("id already exists.");
-        //}
         threadRepository.save(thread);
     }
 
