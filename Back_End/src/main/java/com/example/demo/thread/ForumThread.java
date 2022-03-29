@@ -29,13 +29,23 @@ public class ForumThread
         this.threadName = threadName;
         this.postDate = LocalDate.now();
     }
+    public ForumThread(int id, String threadName){
+        this.id = id;
+        this.threadName = threadName;
+    }
     public String getthreadName()
     {
         return threadName;
+    }
+    public void setthreadName(String threadName){
+        this.threadName = threadName;
+        this.postDate = LocalDate.now();
     }
     public LocalDate getpostDate()
     {
         return postDate;
     }
-    public int getid() {return id;}
+    public int getid() {
+        return id;
+    }
 }

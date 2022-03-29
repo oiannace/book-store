@@ -34,6 +34,18 @@ public class ThreadService
         threadRepository.save(thread);
     }
 
+    public void updateThread(int id, String threadName){
+        Optional<ForumThread> threadOptional = threadRepository.findThreadbyid(id);
+        if(!threadOptional.isPresent()){
+            ForumThread thread = new ForumThread(threadName);
+            threadRepository.save(thread);
+        }
+        else{
+            ForumThread thread = threadOptional.get();
+            thread.setthreadName(threadName);
+            threadRepository.save(thread);
+        }
+    }
     public ForumThread searchThread(int id) {
         Optional<ForumThread> threadOptional = threadRepository.findThreadbyid(id);
         if(!threadOptional.isPresent()){

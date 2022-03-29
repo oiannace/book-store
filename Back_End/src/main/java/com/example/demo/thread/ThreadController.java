@@ -20,10 +20,8 @@ public class ThreadController {
         return threadService.searchThread(id);
     }
 
-    //@RequestMapping(value = "/home/threads", method = RequestMethod.GET)
     @GetMapping
     public List<ForumThread> getThreads() {
-
         return threadService.getThreads();
     }
 
@@ -33,12 +31,13 @@ public class ThreadController {
         threadService.removeThread(id);
     }
 
-    //@RequestMapping(value = "/{home/threads}", method = RequestMethod.POST)
     @PostMapping
     public void addThread(@RequestBody ForumThread thread){
-
-        //ForumThread thread = new ForumThread(threadName);
         threadService.addThread(thread);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updateThread(@PathVariable("id") int id, @RequestParam String threadName){
+        threadService.updateThread(id, threadName);
+    }
 }
