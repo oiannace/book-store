@@ -36,6 +36,7 @@ public class ThreadController {
 
     @PostMapping
     public void addThread(@RequestBody ForumThread thread){
+
         threadService.addThread(thread);
     }
 

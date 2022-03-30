@@ -3,57 +3,21 @@ package com.oiannace.forumapi.service;
 import com.oiannace.forumapi.payload.ForumThread;
 import com.oiannace.forumapi.repository.ThreadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ThreadService
+public interface ThreadService
 {
-    private final ThreadRepository threadRepository;
+    public List<ForumThread> getThreads();
 
-    @Autowired
-    public ThreadService(ThreadRepository threadRepository)
-    {
-        this.threadRepository = threadRepository;
-    }
+    public void removeThread(int id);
 
-    public List<ForumThread> getThreads(){
-        return threadRepository.findAll();
-    }
+    public void addThread(ForumThread thread);
 
-    public void removeThread(int id){
-        boolean tid = threadRepository.existsById(id);
-        if(!tid){
-            throw new IllegalStateException("Book with id "+ id + " does not exist");
-        }
-        threadRepository.deleteById(id);
-    }
-
-    public void addThread(ForumThread thread){
-        Optional<ForumThread> threadOptional = threadRepository.findThreadbyid(thread.getid());
-        threadRepository.save(thread);
-    }
-
-    public void updateThread(int id, String threadName){
-        Optional<ForumThread> threadOptional = threadRepository.findThreadbyid(id);
-        if(!threadOptional.isPresent()){
-            ForumThread thread = new ForumThread(threadName);
-            threadRepository.save(thread);
-        }
-        else{
-            ForumThread thread = threadOptional.get();
-            thread.setthreadName(threadName);
-            threadRepository.save(thread);
-        }
-    }
-    public ForumThread searchThread(int id) {
-        Optional<ForumThread> threadOptional = threadRepository.findThreadbyid(id);
-        if(!threadOptional.isPresent()){
-            throw new IllegalStateException("Thread does not exist.");
-        }
-        ForumThread thread = threadOptional.get();
-        return thread;
-    }
+    public void updateThread(int id, String threadName);
+    public ForumThread searchThread(int id);
 }
