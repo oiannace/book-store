@@ -1,5 +1,7 @@
-package com.example.demo.thread;
+package com.oiannace.forumapi.configuration;
 
+import com.oiannace.forumapi.payload.ForumThread;
+import com.oiannace.forumapi.repository.ThreadRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

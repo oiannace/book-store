@@ -1,5 +1,6 @@
-package com.example.demo.thread;
+package com.oiannace.forumapi.repository;
 
+import com.oiannace.forumapi.payload.ForumThread;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,4 +1,7 @@
-package com.example.demo.thread;
+package com.oiannace.forumapi.controller;
+
+import com.oiannace.forumapi.service.ThreadService;
+import com.oiannace.forumapi.payload.ForumThread;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
