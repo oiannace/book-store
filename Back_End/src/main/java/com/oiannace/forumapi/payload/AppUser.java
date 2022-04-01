@@ -27,4 +27,10 @@ public class AppUser {
     public Collection<Role> getRoles(){
         return this.roles;
     }
+    public String getUsername(){
+        return this.username;
+    }
+    public String getPassword(){
+        return this.password;
+    }
 }
