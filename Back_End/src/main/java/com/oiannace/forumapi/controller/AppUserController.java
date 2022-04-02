@@ -19,20 +19,24 @@ public class AppUserController {
     public AppUserController(AppUserService userService) {
         this.userService = userService;
     }
+
     @GetMapping("/users")
     public ResponseEntity<List<AppUser>>getUsers(){
         return ResponseEntity.ok().body(userService.getUsers());
     }
+
     @PostMapping("/user/save")
     public ResponseEntity<AppUser>saveUser(@RequestBody AppUser user){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
+
     @PostMapping("/role/save")
     public ResponseEntity<Role>saveRole(@RequestBody Role role){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/role/save").toUriString());
         return ResponseEntity.created(uri).body(userService.saveRole(role));
     }
+
     @PostMapping("/user/assignrole")
     public ResponseEntity<?>saveRole(@RequestBody RoleToAppUser roletouser){
         userService.assignRole(roletouser.getUsername(),roletouser.getRoleName());

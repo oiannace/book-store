@@ -1,6 +1,8 @@
 package com.oiannace.forumapi.configuration;
 
+import com.oiannace.forumapi.payload.AppUser;
 import com.oiannace.forumapi.payload.ForumThread;
+import com.oiannace.forumapi.repository.AppUserRepository;
 import com.oiannace.forumapi.repository.ThreadRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 @Configuration
 public class ThreadConfig {
     @Bean
-    CommandLineRunner commandLineRunner(ThreadRepository repo){
+    CommandLineRunner commandLineRunner(ThreadRepository repo, AppUserRepository userrepo){
         return args->{
             ForumThread Book1 = new ForumThread ("The Hobbit");
             ForumThread Book2 = new ForumThread ("Eragon");
@@ -25,4 +27,5 @@ public class ThreadConfig {
             );
         };
     }
+
 }

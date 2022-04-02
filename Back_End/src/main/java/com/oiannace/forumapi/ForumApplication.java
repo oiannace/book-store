@@ -17,7 +17,7 @@ public class ForumApplication {
 	}
 
 	@Bean
-	public BCryptPasswordEncoder passwordEncoder(){
+	BCryptPasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
 }

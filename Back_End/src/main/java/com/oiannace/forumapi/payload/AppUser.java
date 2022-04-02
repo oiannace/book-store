@@ -33,4 +33,8 @@ public class AppUser {
     public String getPassword(){
         return this.password;
     }
+
+    public void setPassword(String encode) {
+        this.password = encode;
+    }
 }

@@ -11,6 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,16 +22,19 @@ import java.util.List;
 public class AppUserServiceimpl implements AppUserService, UserDetailsService {
     private final AppUserRepository AppUserRepo;
     private final RoleRepository RoleRepo;
-
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
-    public AppUserServiceimpl(AppUserRepository AppUserRepo, RoleRepository RoleRepo)
+    public AppUserServiceimpl(AppUserRepository AppUserRepo, RoleRepository RoleRepo, BCryptPasswordEncoder bCryptPasswordEncoder)
     {
         this.AppUserRepo = AppUserRepo;
         this.RoleRepo = RoleRepo;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @Override
     public AppUser saveUser(AppUser user) {
+        //when account is created by post request, password is stared in encoded form
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return AppUserRepo.save(user);
     }
 
