@@ -1,9 +1,8 @@
-package com.oiannace.forumapi.payload;
+package com.oiannace.forumapi.method;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+
 @Entity
 @Table
 public class Role {

@@ -1,10 +1,9 @@
 package com.oiannace.forumapi.service.implementation;
 
-import com.oiannace.forumapi.payload.ForumThread;
+import com.oiannace.forumapi.method.ForumThread;
 import com.oiannace.forumapi.repository.ThreadRepository;
 import com.oiannace.forumapi.service.ThreadService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

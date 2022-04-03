@@ -1,10 +1,9 @@
 package com.oiannace.forumapi.service.implementation;
 
-import com.oiannace.forumapi.payload.AppUser;
-import com.oiannace.forumapi.payload.Role;
+import com.oiannace.forumapi.method.AppUser;
+import com.oiannace.forumapi.method.Role;
 import com.oiannace.forumapi.repository.AppUserRepository;
 import com.oiannace.forumapi.repository.RoleRepository;
-import com.oiannace.forumapi.repository.ThreadRepository;
 import com.oiannace.forumapi.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -48,7 +47,7 @@ public class AppUserServiceimpl implements AppUserService, UserDetailsService {
         AppUser user = AppUserRepo.findByUsername(username);
         Role role = RoleRepo.findByName(rolename);
         user.getRoles().add(role);
-        //@transactional ensures that everythign is saved back to database afterwards
+        //@transactional ensures that everything is saved back to database afterwards
     }
 
     @Override

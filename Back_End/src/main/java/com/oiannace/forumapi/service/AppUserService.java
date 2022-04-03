@@ -1,7 +1,7 @@
 package com.oiannace.forumapi.service;
 
-import com.oiannace.forumapi.payload.AppUser;
-import com.oiannace.forumapi.payload.Role;
+import com.oiannace.forumapi.method.AppUser;
+import com.oiannace.forumapi.method.Role;
 
 import java.util.List;
 

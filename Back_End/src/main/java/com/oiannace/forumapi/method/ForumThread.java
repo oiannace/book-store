@@ -1,4 +1,4 @@
-package com.oiannace.forumapi.payload;
+package com.oiannace.forumapi.method;
 
 import javax.persistence.*;
 import java.time.LocalDate;

@@ -1,7 +1,7 @@
 package com.oiannace.forumapi.controller;
 
-import com.oiannace.forumapi.payload.AppUser;
-import com.oiannace.forumapi.payload.Role;
+import com.oiannace.forumapi.method.AppUser;
+import com.oiannace.forumapi.method.Role;
 import com.oiannace.forumapi.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
