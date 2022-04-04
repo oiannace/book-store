@@ -40,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //need to adjust authorizations for all apis
         //need to allow a post request for account creation for all
         http.authorizeRequests().antMatchers(GET, "/api/user/**").hasAuthority("ROLE_USER");
+        http.authorizeRequests().antMatchers("/login/**", "/api/token/refresh/**").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(new CustomAuthFilter(authenticationManagerBean()));
         http.addFilterBefore(new CustomAuthorFilter(), UsernamePasswordAuthenticationFilter.class);
