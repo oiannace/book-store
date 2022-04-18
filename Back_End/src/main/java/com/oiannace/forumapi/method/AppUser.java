@@ -14,6 +14,7 @@ public class AppUser {
     private String username;
     private String password;
 
+    private ArrayList<Comment> threadComments;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
 
@@ -23,6 +24,7 @@ public class AppUser {
         this.name = name;
         this.username = username;
         this.password = password;
+        this.threadComments = new ArrayList<Comment>();
     }
     public Collection<Role> getRoles(){
         return this.roles;
@@ -33,7 +35,9 @@ public class AppUser {
     public String getPassword(){
         return this.password;
     }
-
+    public void addComment(String content){
+        this.threadComments.add(new Comment(content));
+    }
     public void setPassword(String encode) {
         this.password = encode;
     }
